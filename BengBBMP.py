@@ -15,6 +15,7 @@ def send_telegram(data,time):
     sesh = data['sessions']
     message = "\nPinCode: " + str(data['pincode']) +"\nName: " + str(data['name']) + "\nDate: "+ str(sesh[0]['date']) + "\nAvailable: " + str(sesh[0]['available_capacity']) + "\n\n\nQueried at :" + str(time)
     print(message)
+    mess="Deployed"
     telegram_send.send(conf="~/channel.conf",messages=[message])
 
 
@@ -67,6 +68,8 @@ def check_for_vaccine():
 
 
 def main():
+    mess="Deployed"
+    telegram_send.send(conf="~/channel.conf",messages=[mess])
     print("Checking centers for vaccination..........")
     while(True):
         check_for_vaccine()
